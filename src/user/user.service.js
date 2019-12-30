@@ -14,9 +14,19 @@ const userService = () => {
             throw err;
         }
     };
-
+    // get user from db with given pin
+    const getUser = async pin => {
+        const query = 'SELECT id, name, phone, email, reg_date FROM users WHERE pin = ?';
+        try {
+            const [rows] = await dbConnection.execute(query, [pin]);
+            return rows;
+        } catch (err) {
+            throw err;
+        }
+    };
     return {
         register,
+        getUser,
     };
 };
 module.exports = userService;
