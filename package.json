@@ -1,0 +1,23 @@
+{
+  "name": "user-profile-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon",
+    "pretest": "eslint --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.3.1",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
