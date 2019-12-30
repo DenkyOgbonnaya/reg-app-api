@@ -14,6 +14,6 @@ const connection = msql.createPool({
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
-}).promise(); 
+}).promise();
 
 module.exports = connection;
