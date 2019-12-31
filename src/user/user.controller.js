@@ -29,12 +29,12 @@ const userController = () => {
                 if (response) {
                     const message = `Registration successful! a personal pin has been sent to your email.
                         Use it to confirm your registration.`;
-                    return res.status(201).send({message})
+                    return res.status(201).send({message, ok:true})
                 }
             }
-            return res.status(400).send({message: 'Registration failed!, invalid details'})
+            return res.status(400).send({message: 'Registration failed!, invalid details', ok:false})
         } catch (err) {
-           res.status(500).send({message: 'Registration failed!, internal server error'})
+           res.status(500).send({message: 'Registration failed!, internal server error', ok:false})
         }
     }
     //get a single user from db
@@ -44,10 +44,10 @@ const userController = () => {
         try {
             const result = await getUser(pin);
             if (result.length>0)
-                return res.status(200).send({user: result[0]});
-            return res.status(404).send({message: 'User not found'});
+                return res.status(200).send({user: result[0], ok:true});
+            return res.status(404).send({message: 'User not found', ok:false});
         } catch (err) {
-            res.status(500).send({message: 'Internal server error'});
+            res.status(500).send({message: 'Internal server error', ok:false});
         }
     };
     return {
